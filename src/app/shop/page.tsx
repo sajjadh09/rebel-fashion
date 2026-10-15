@@ -1,13 +1,21 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import { ProductCard } from "@/components/product-card";
 import { categories, formatPrice, products } from "@/lib/store-data";
 
 export default function ShopPage() {
+  return (
+    <Suspense>
+      <ShopContent />
+    </Suspense>
+  );
+}
+
+function ShopContent() {
   const params = useSearchParams();
   const [searchTerm, setSearchTerm] = useState(params.get("search") ?? "");
   const [selectedCategory, setSelectedCategory] = useState(params.get("category") ?? "all");
