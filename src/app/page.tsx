@@ -21,7 +21,7 @@ export default function HomePage() {
               <span className="mb-5 inline-flex w-fit rounded-full border border-[color:var(--brand-primary)] bg-[color:var(--brand-primary)]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--brand-deep)]">
                 Everyday luxury
               </span>
-              <h1 className="max-w-xl text-4xl font-semibold tracking-[-0.06em] text-[color:var(--brand-deep)] sm:text-5xl lg:text-6xl">
+              <h1 className="max-w-xl text-4xl font-semibold tracking-[-0.06em] text-[color:var(--brand-deep)] sm:text-5xl lg:text-6xl motion-fade-up">
                 Style the city in soft power.
               </h1>
               <p className="mt-5 max-w-lg text-base leading-7 text-[color:var(--brand-charcoal)]/75 sm:text-lg">
