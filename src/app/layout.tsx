@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Footer } from "@/components/footer";
 import { Header } from "@/components/header";
 import { StoreProvider } from "@/components/store-provider";
+import RouteTransitions from "@/components/route-transitions";
 
 import "./globals.css";
 
@@ -17,7 +18,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="bg-[color:var(--brand-background)] text-[color:var(--brand-charcoal)]">
         <StoreProvider>
           <Header />
-          <main>{children}</main>
+          <main>
+            <RouteTransitions>{children}</RouteTransitions>
+          </main>
           <Footer />
         </StoreProvider>
       </body>
