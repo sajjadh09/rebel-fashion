@@ -13,9 +13,9 @@ export function ProductCard({ product }: { product: Product }) {
     <article className="group overflow-hidden rounded-[28px] border border-[color:var(--brand-border)] bg-[color:var(--brand-white)] shadow-[0_18px_45px_rgba(91,64,50,0.08)] transition duration-200 hover:-translate-y-1 hover:shadow-[0_26px_60px_rgba(91,64,50,0.12)]">
       <div className="relative">
         <Link href={`/product/${product.slug}`} className="block overflow-hidden rounded-t-[28px]">
-          <div className="relative aspect-[4/5] overflow-hidden bg-[color:var(--brand-ivory)]">
-
-          </div>
+         <div className="relative aspect-[4/5] overflow-hidden bg-[color:var(--brand-ivory)]">
+  <Image src={product.images[0]} alt={product.name} fill className="object-cover" />
+        </div>
         </Link>
 
         {product.badge ? (
