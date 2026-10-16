@@ -18,7 +18,7 @@ export default function HomePage() {
         <div className="overflow-hidden rounded-[36px] border border-[color:var(--brand-border)] bg-[color:var(--brand-white)] shadow-[0_28px_80px_rgba(91,64,50,0.08)]">
           <div className="grid items-stretch lg:grid-cols-[1.1fr_0.9fr]">
             <div className="flex flex-col justify-center p-6 sm:p-8 lg:p-12 xl:p-16">
-              <span className="mb-5 inline-flex w-fit rounded-full border border-[color:var(--brand-primary)] bg-[color:var(--brand-primary)]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-[color:var(--brand-deep)]">
+              <span className="mb-5 inline-flex w-fit rounded-full border border-[color:var(--brand-primary)] bg-[color:var(--brand-primary)]/10 px-3 py-1 text-xs font-semibold uppercase tracking-[...]
                 Everyday luxury
               </span>
               <h1 className="max-w-xl text-4xl font-semibold tracking-[-0.06em] text-[color:var(--brand-deep)] sm:text-5xl lg:text-6xl">
@@ -28,10 +28,10 @@ export default function HomePage() {
                 Thoughtful essentials and statement pieces for a wardrobe that moves effortlessly from sunrise meetings to late dinners.
               </p>
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-                <Link href="/shop" className="inline-flex items-center justify-center rounded-full bg-[color:var(--brand-primary)] px-6 py-3 text-sm font-semibold text-[color:var(--brand-deep)] shadow-sm hover:bg-[color:var(--brand-secondary)]">
+                <Link href="/shop" className="inline-flex items-center justify-center rounded-full bg-[color:var(--brand-primary)] px-6 py-3 text-sm font-semibold text-[color:var(--brand-deep)] sh[...]">
                   Shop now
                 </Link>
-                <Link href="/shop?category=new-arrivals" className="inline-flex items-center justify-center rounded-full border border-[color:var(--brand-border)] bg-white px-6 py-3 text-sm font-semibold text-[color:var(--brand-charcoal)] hover:bg-[color:var(--brand-soft)]">
+                <Link href="/shop?category=new-arrivals" className="inline-flex items-center justify-center rounded-full border border-[color:var(--brand-border)] bg-white px-6 py-3 text-sm font-s[...]">
                   Explore collections
                 </Link>
               </div>
@@ -82,6 +82,7 @@ export default function HomePage() {
               className="group relative overflow-hidden rounded-[28px] border border-[color:var(--brand-border)] bg-white"
             >
               <div className="relative h-72 overflow-hidden">
++                <Image src={category.image} alt={category.name} fill className="object-cover" />
                 <div className="absolute inset-0 bg-gradient-to-t from-[rgba(17,17,17,0.28)] via-transparent to-transparent" />
               </div>
               <div className="absolute inset-x-0 bottom-0 p-5 text-white">
@@ -131,7 +132,7 @@ export default function HomePage() {
               <span className="rounded-full bg-[color:var(--brand-primary)]/15 px-3 py-2 text-sm font-medium text-[color:var(--brand-deep)]">Premium fabric</span>
               <span className="rounded-full bg-[color:var(--brand-primary)]/15 px-3 py-2 text-sm font-medium text-[color:var(--brand-deep)]">Modern tailoring</span>
             </div>
-            <Link href="/shop?category=women" className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-[color:var(--brand-primary)] px-5 py-3 text-sm font-semibold text-[color:var(--brand-deep)] hover:bg-[color:var(--brand-secondary)]">
+            <Link href="/shop?category=women" className="mt-8 inline-flex w-fit items-center justify-center rounded-full bg-[color:var(--brand-primary)] px-5 py-3 text-sm font-semibold text-[colo[...]">
               Shop the edit
             </Link>
           </div>
@@ -145,34 +146,6 @@ export default function HomePage() {
             <h2 className="mt-2 text-3xl font-semibold tracking-[-0.05em] text-[color:var(--brand-deep)]">Best-loved pieces</h2>
           </div>
         </div>
-
-        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {featuredProducts.slice(0, 4).map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-7xl px-4 pb-20 sm:px-6 lg:px-8">
-        <div className="rounded-[32px] border border-[color:var(--brand-border)] bg-[linear-gradient(135deg,_rgba(196,154,120,0.12),_rgba(248,243,236,1))] p-8 sm:p-10 lg:p-12">
-          <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--brand-deep)]/80">Seasonal drop</p>
-              <h2 className="mt-3 text-3xl font-semibold tracking-[-0.06em] text-[color:var(--brand-deep)] sm:text-4xl">
-                Transitional layers for the warmest months.
-              </h2>
-              <p className="mt-4 max-w-xl text-base leading-7 text-[color:var(--brand-charcoal)]/75">
-                Discover polished silhouettes in warm neutrals and rich textures to carry you from brunch through evening plans.
-              </p>
-            </div>
-            <div className="flex justify-start lg:justify-end">
-              <Link href="/shop?category=new-arrivals" className="inline-flex items-center justify-center rounded-full bg-[color:var(--brand-primary)] px-6 py-3 text-sm font-semibold text-[color:var(--brand-deep)] hover:bg-[color:var(--brand-secondary)]">
-                Shop the collection
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       <NewsletterSignup />
     </>
