@@ -10,16 +10,22 @@ export function ProductCard({ product }: { product: Product }) {
   const { isWishlisted, toggleWishlist } = useStore();
 
   return (
-    <article className="group overflow-hidden rounded-[28px] border border-[color:var(--brand-border)] bg-[color:var(--brand-white)] shadow-[0_18px_45px_rgba(91,64,50,0.08)] transition duration-200 hover:-translate-y-1 hover:shadow-[0_26px_60px_rgba(91,64,50,0.12)]">
+    <article className="group relative overflow-hidden rounded-[28px] border border-[color:var(--brand-border)] bg-[color:var(--brand-white)] shadow-[0_18px_45px_rgba(91,64,50,0.08)] transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_28px_60px_rgba(91,64,50,0.12)]">
       <div className="relative">
         <Link href={`/product/${product.slug}`} className="block overflow-hidden rounded-t-[28px]">
-         <div className="relative aspect-[4/5] overflow-hidden bg-[color:var(--brand-ivory)]">
-  <Image src={product.images[0]} alt={product.name} fill className="object-cover" />
-        </div>
+          <div className="relative aspect-[4/5] overflow-hidden bg-[color:var(--brand-ivory)]">
+            <Image
+              src={product.images[0]}
+              alt={product.name}
+              fill
+              className="object-cover transition duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-[rgba(17,17,17,0.18)] via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
+          </div>
         </Link>
 
         {product.badge ? (
-          <span className="absolute left-4 top-4 rounded-full bg-[color:var(--brand-primary)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[color:var(--brand-deep)]">
+          <span className="absolute left-4 top-4 rounded-full bg-[color:var(--brand-primary)] px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-[color:var(--brand-deep)] shadow-sm">
             {product.badge}
           </span>
         ) : null}
@@ -34,13 +40,24 @@ export function ProductCard({ product }: { product: Product }) {
             {isWishlisted(product.id) ? "♥" : "♡"}
           </span>
         </button>
+
+        <div className="absolute inset-x-4 bottom-4 opacity-0 transition-all duration-300 group-hover:opacity-100">
+          <Link
+            href={`/product/${product.slug}`}
+            className="inline-flex w-full items-center justify-center rounded-full border border-white/70 bg-white/90 px-4 py-2.5 text-sm font-semibold text-[color:var(--brand-deep)] shadow-lg backdrop-blur-sm"
+          >
+            Quick view
+          </Link>
+        </div>
       </div>
 
       <div className="space-y-4 p-5">
         <div className="space-y-2">
           <div className="flex items-start justify-between gap-4">
             <Link href={`/product/${product.slug}`} className="block flex-1 text-left">
-              <h3 className="text-lg font-semibold text-[color:var(--brand-charcoal)]">{product.name}</h3>
+              <h3 className="text-lg font-semibold text-[color:var(--brand-charcoal)] transition-colors group-hover:text-[color:var(--brand-deep)]">
+                {product.name}
+              </h3>
             </Link>
           </div>
           <div className="flex items-center gap-2">
@@ -58,8 +75,21 @@ export function ProductCard({ product }: { product: Product }) {
             {product.colors.slice(0, 3).map((color) => (
               <span
                 key={color}
-                className="h-3 w-3 rounded-full border border-[color:var(--brand-border)]"
-                style={{ backgroundColor: color.toLowerCase() === "ivory" ? "#F3E7D7" : color.toLowerCase() === "sand" ? "#D9C1A3" : color.toLowerCase() === "mocha" ? "#7B5D49" : color.toLowerCase() === "cocoa" ? "#6E4F3C" : color.toLowerCase() === "black" ? "#1F1F1F" : "#D6C8B7" }}
+                className="h-3 w-3 rounded-full border border-[color:var(--brand-border)] shadow-sm"
+                style={{
+                  backgroundColor:
+                    color.toLowerCase() === "ivory"
+                      ? "#F3E7D7"
+                      : color.toLowerCase() === "sand"
+                        ? "#D9C1A3"
+                        : color.toLowerCase() === "mocha"
+                          ? "#7B5D49"
+                          : color.toLowerCase() === "black"
+                            ? "#1A1A1A"
+                            : color.toLowerCase() === "white"
+                              ? "#FFFFFF"
+                              : color,
+                }}
                 aria-label={color}
               />
             ))}
@@ -67,7 +97,7 @@ export function ProductCard({ product }: { product: Product }) {
 
           <Link
             href={`/product/${product.slug}`}
-            className="rounded-full border border-[color:var(--brand-primary)] bg-[color:var(--brand-primary)] px-4 py-2 text-sm font-medium text-[color:var(--brand-deep)] hover:bg-[color:var(--brand-secondary)]"
+            className="rounded-full border border-[color:var(--brand-primary)] bg-[color:var(--brand-primary)] px-4 py-2 text-sm font-medium text-[color:var(--brand-deep)] transition hover:bg-[color:var(--brand-secondary)]"
           >
             View details
           </Link>
