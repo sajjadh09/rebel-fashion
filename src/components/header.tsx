@@ -5,6 +5,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { FormEvent, useState } from "react";
 
 import { useStore } from "@/components/store-provider";
+import AnimatedLogo from "@/components/animated-logo";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -49,10 +50,9 @@ export function Header() {
             </button>
 
             <Link href="/" className="flex items-center gap-2" aria-label="Rebel Fashion home">
-              <span className="flex h-10 w-10 items-center justify-center rounded-full bg-[color:var(--brand-primary)] text-base font-bold text-[color:var(--brand-deep)]">
-                RF
+              <span className="flex items-center">
+                <AnimatedLogo className="min-w-[140px]" />
               </span>
-              <span className="text-xl font-semibold tracking-[0.18em] text-[color:var(--brand-deep)]">REBEL</span>
             </Link>
           </div>
 
